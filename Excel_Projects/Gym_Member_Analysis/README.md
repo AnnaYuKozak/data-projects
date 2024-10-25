@@ -63,12 +63,16 @@ The following key analyses were performed using `PivotTables`:
 
 ## Insights
 1. **Correlation between Fat Percentage and Workout Frequency**.
-![Fat Percentage vs. Workout Frequency]([https://github.com/YourUsername/YourRepoName/blob/main/YourImageFileName.png](https://github.com/AnnaYuKozak/data-projects/blob/main/Fat%25&Freq.png?raw=true))
 
+![Fat Percentage vs. Workout Frequency](https://github.com/AnnaYuKozak/data-projects/blob/main/Fat%25%26Freq.png?raw=true)
 
 A clear correlation was found between workout frequency and body fat percentage. Members who went to the gym 4–5 days per week had an increasingly lower average body fat percentage, reaching as low as `14%`. However, no consistent trend was observed among those who worked out 2–3 days per week. This suggests that working out more than 4 days per week may help in achieving a lower body fat percentage.
 
 2. **BMI Group, Workout Type, and Session Duration**.
+
+![BMI Group, Workout Type, and Session Duration](https://github.com/AnnaYuKozak/data-projects/blob/main/Ses%26BMI.png?raw=true)
+
+
 Analysis showed that individuals with a `Normal Weight BMI` tend to work out the longest on average and show a preference for `HIIT` workouts. Following this:
 
 - `Overweight` members spend the most time on `Yoga`.
@@ -79,12 +83,20 @@ Analysis showed that individuals with a `Normal Weight BMI` tend to work out the
 These findings suggest that members with a Normal Weight BMI engage in longer sessions, averaging `1 hour and 30 minutes`. However, *no definitive trend* was identified between specific workout types and BMI categories.
 
 3. **Calories Burned, Workout Type, Age Group, and Gender**.
+
+![Calories Burned, Workout Type, Age Group, and Gender](https://github.com/AnnaYuKozak/data-projects/blob/main/Calories%26G.png?raw=true)
+
+
 `Yoga` was found to significantly increase calories burned among `women aged 26–35`.
 `HIIT` workouts were the most effective for calorie burning in `men`.
 `Older women` (especially those **over 45**) gravitate toward `Strength` workouts, **while** `older men` prefer `Cardio`.
 `Younger women (18–25)` tend to prefer `Cardio`, **while** `young men` of the same age group are more inclined towards `HIIT` and `Strength` workouts.
 
 4. **Analysis of Gender, Age Groups, and Workout Frequency**.
+
+![Gender, Age Groups, and Workout Frequency](https://github.com/AnnaYuKozak/data-projects/blob/main/G%26Freq.png?raw=true)
+
+
 The top three most frequent gym-goers were:
 
 - Women aged 26–36 (average **3.5** days per week),
@@ -94,4 +106,8 @@ The top three most frequent gym-goers were:
 Interestingly, `older men (56–65)` were the **least** frequent gym-goers, suggesting that gym frequency tends to be higher in certain age and gender groups.
 
 5. **Water Intake, Calories Burned, Workout Type, and Gender**.
+
+![Water Intake](https://github.com/AnnaYuKozak/data-projects/blob/main/Water.png?raw=true)
+
+
 Remarkably, females generally did **not** drink more than 3 liters of water during workouts. The data indicates that `those who consumed 2–3 liters` burned **more** calories, regardless of workout type. A similar correlation was observed in men, *with the exception of HIIT workouts*. This suggests that `drinking 2–3 liters` of water may **enhance calorie burn** during workouts across various types.
