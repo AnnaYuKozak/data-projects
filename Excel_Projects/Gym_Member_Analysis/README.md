@@ -120,4 +120,4 @@ Key findings include:
 - `BMI and Workout Type`: Normal-weight members spent more time on HIIT workouts, while those in higher BMI categories engaged more in Yoga and Cardio.
 - `Calories Burned by Workout Type, Age, and Gender`: Women aged 26–35 burned more calories in Yoga, while men showed the highest calorie burn with HIIT workouts. This insight indicates how different demographics may benefit more from specific workout types.
 - `Gym Attendance by Demographics`: The most frequent gym-goers were women aged 26–36 and 56–65, along with men aged 36–45, highlighting age and gender patterns in workout frequency.
-- `Water Intake and Calorie Burn`: Both male and female members who consumed 2–3 liters of water during workouts tended to burn more calories, showing a potential link between hydration and energy expenditure
+- `Water Intake and Calorie Burn`: Both male and female members who consumed 2–3 liters of water during workouts tended to burn more calories, showing a potential link between hydration and energy expenditure.
