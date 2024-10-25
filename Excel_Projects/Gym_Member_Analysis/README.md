@@ -63,6 +63,9 @@ The following key analyses were performed using `PivotTables`:
 
 ## Insights
 1. **Correlation between Fat Percentage and Workout Frequency**.
+![Fat Percentage vs. Workout Frequency]([https://github.com/YourUsername/YourRepoName/blob/main/YourImageFileName.png](https://github.com/AnnaYuKozak/data-projects/blob/main/Fat%25&Freq.png?raw=true))
+
+
 A clear correlation was found between workout frequency and body fat percentage. Members who went to the gym 4–5 days per week had an increasingly lower average body fat percentage, reaching as low as `14%`. However, no consistent trend was observed among those who worked out 2–3 days per week. This suggests that working out more than 4 days per week may help in achieving a lower body fat percentage.
 
 2. **BMI Group, Workout Type, and Session Duration**.
