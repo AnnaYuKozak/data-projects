@@ -65,6 +65,15 @@ ORDER BY avg_productivity DESC;`. **Expected Outcome:** It was anticipated that 
 3. Results:
    After executing the SQL query, the following results were obtained:
 
+- **Performance Score across the Company**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/performers_count.png)
+
+- **Performance Score across Departments**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/department.png)
+
+- **Performance Score across Job Titles**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/job%20title.png)
+ 
 
 ### Insights & Implications
 - The number of workers with the worst performance score is the highest, while the group with best performers has the lowest count.
