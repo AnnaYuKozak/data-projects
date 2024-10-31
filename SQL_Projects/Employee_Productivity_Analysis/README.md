@@ -82,24 +82,80 @@ ORDER BY avg_productivity DESC;`. **Expected Outcome:** It was anticipated that 
 - **Implications:** These findings suggest that the company has a broad base of lower performing employees. It might be beneficial to address this imbalance by creating development programs for underperformers and strategies for achieving higher productivity levels. In addition, the company would benefit by identifying reasons for high productivity in `Engineering` department and `Specialists`, while also exploring and addressing challenges that `Developers` and `Marketing` department workers are facing, potentially these could be role ambiguity or challenges in goal-setting.
 
 ### 2. Influence of Work Hours on Productivity
-1. Objective: ...
+1. Objective: Explore how different work hours affect the performance score.
 2. Methodology:
--  to explore ... `FUNCTIONS` were used. **SQL Query for *...*:** `...`. **SQL Query for *...*:** `...`. **Expected Outcome:** It was anticipated that ...
+-  Categorization of the `Work_Hours_Per_Week` column was created using `CASE WHEN` function: `Part-Time`: Less than 38 hours per week. `Normal`: Between 38 and 40 hours per week. `Overtime`: More than 40 hours per week.
+-  Used the `AVG` function to calculate the average `Performance Score` (for productivity) and the average `Employee Satisfaction Score` for each work hours category; as well as `GROUP BY`,`ORDER BY`, and `DESC`.
+-   **SQL Query:** `SELECT 
+    CASE 
+        WHEN Work_Hours_Per_Week < 38 THEN 'Part-Time'
+        WHEN Work_Hours_Per_Week BETWEEN 38 AND 40 THEN 'Normal'
+        WHEN Work_Hours_Per_Week > 40 THEN 'Overtime'
+    END AS work_hours_category,
+    AVG(Performance_Score) AS avg_productivity,
+    AVG(Employee_Satisfaction_Score) AS avg_satisfaction
+FROM 
+    Employees
+GROUP BY 
+    work_hours_category
+ORDER BY 
+    avg_productivity DESC;
+`. **Expected Outcome:** It was anticipated that the `Normal` group would show the highest average productivity and satisfaction levels.
+
+3. Results:
+   After executing the SQL query, the following results were obtained:
+
+- **Performance and Satisfaction Scores across Work_Hour Groups**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/workhours_prod_satis.png)
+
 ### Insights & Implications
-- ...
-- ...
-- ...
-- **Implications:** These findings suggest ...
+- `Part-Time` workers have the higest average productivity score, while also being the group who takes the second place in average satisfaction score results.
+- Workers with `Normal` hours are the second with an average productivity score while they have the highest satisfaction score.
+- Employees who work `Overtime` have the lowest average productivity **and** satisfaction levels.
+- **Implications:** These findings suggest that working excessive hours may cause burnout which negatively impacts employee's performance. It is recommended to assess workloads in order to reduce the need for overtime, while implementing regular surveys to check well-being and understand workers' needs. In addition, since `Part-Time` group are the most efficient, their productivity can be utilized in critical tasks. 
 
 ### 3. Salary and promotion as motivators
-1. Objective: ...
+1. Objective: Explore whether salary and promotion boost worker's performance.
 2. Methodology:
--  to explore ... `FUNCTIONS` were used. **SQL Query for *...*:** `...`. **SQL Query for *...*:** `...`. **Expected Outcome:** It was anticipated that ...
+-  Categorizations of the `Monthly_Salary` and 'Promotion' columns were created using `CASE WHEN` function.
+-  Used the `AVG` function to calculate the average `Performance Score` (for productivity) and the average `Employee Satisfaction Score` for each work hours category; as well as `GROUP BY`,`ORDER BY`, and `DESC`. **SQL Query for *Monthly Salary*:** `SELECT 
+    CASE 
+        WHEN Monthly_Salary BETWEEN 3850 AND 5800 THEN 'Low'
+        WHEN Monthly_Salary BETWEEN 5801 AND 7400 THEN 'Moderate'
+        WHEN Monthly_Salary BETWEEN 7401 AND 9000 THEN 'High'
+    END AS salary_category,
+    AVG(Performance_Score) AS avg_productivity,
+    AVG(Employee_Satisfaction_Score) AS avg_satisfaction
+FROM 
+    Employees
+GROUP BY 
+    salary_category;`. **SQL Query for *Promotions*:** `SELECT 
+    CASE 
+        WHEN Promotions = 0 THEN 'No Promotions'
+        WHEN Promotions = 1 THEN 'One Promotion'
+        WHEN Promotions = 2 THEN 'Two Promotions'
+    END AS promotion_level,
+    AVG(Performance_Score) AS avg_productivity,
+    AVG(Employee_Satisfaction_Score) AS avg_satisfaction
+FROM 
+    Employees
+GROUP BY 
+    promotion_level
+ORDER BY  
+    avg_productivity DESC,
+    promotion_level;`. **Expected Outcome:** It was anticipated that employees with higher salaries and at least one promotion during their tenure would exhibit higher productivity and satisfaction levels.
+
+3. Results:
+   After executing the SQL query, the following results were obtained:
+
+- **Performance and Satisfaction Scores across Salary categories**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/Salary.png)
+
+- **Performance and Satisfaction Scores across Promotion levels**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/Promotion.png)
+
 ### Insights & Implications
-- ...
-- ...
-- ...
-- **Implications:** These findings suggest ...
+- High earners are the most satisfied and productive workers, compared to other two categories. As expected, group with Low income were the least productive and satisfied with their job, which implies that salary might indeed be an important factor. Additionally, those with no promotions are the most productive workers, which can signify that the strive for a promotion might also be of importance. It is recommended for the company to provide a clear promotion pathways and employee recognition as ways to enchance productivity levels. 
 
 ### 4. Educational Background
 1. Objective: ...
