@@ -158,14 +158,44 @@ ORDER BY
 - High earners are the most satisfied and productive workers, compared to other two categories. As expected, group with Low income were the least productive and satisfied with their job, which implies that salary might indeed be an important factor. Additionally, those with no promotions are the most productive workers, which can signify that the strive for a promotion might also be of importance. It is recommended for the company to provide a clear promotion pathways and employee recognition as ways to enchance productivity levels. 
 
 ### 4. Educational Background
-1. Objective: ...
+1. Objective: Explore whether there is a correlation between employees' educational background and their productivity and satisfaction levels.
 2. Methodology:
--  to explore ... `FUNCTIONS` were used. **SQL Query for *...*:** `...`. **SQL Query for *...*:** `...`. **Expected Outcome:** It was anticipated that ...
+-  Used the `AVG` function to calculate the average `Performance Score` (for productivity) and the average `Employee Satisfaction Score` for each work hours category; as well as `GROUP BY`,`ORDER BY`, and `DESC`.
+-  Used the COUNT function with CASE WHEN to determine the number of best performers (Performance_Score = 5) and worst performers (Performance_Score = 1) across different education levels.
+-   **SQL Query for *Performer Counts*:** `SELECT 
+    Education_Level, 
+    COUNT(CASE WHEN Performance_Score = 5 THEN 1 END) AS best_performers, 
+    COUNT(CASE WHEN Performance_Score = 1 THEN 1 END) AS worst_performers 
+FROM 
+    Employees 
+GROUP BY 
+    Education_Level 
+ORDER BY 
+    best_performers DESC, 
+    worst_performers DESC;`. **SQL Query for *Average Productivity and Satisfaction*:** `SELECT 
+    Education_Level,
+    AVG(Employee_Satisfaction_Score) AS avg_satisfaction,
+    AVG(Performance_Score) AS avg_productivity
+FROM 
+    Employees
+GROUP BY 
+    Education_Level
+ORDER BY 
+    avg_productivity DESC;`. **Expected Outcome:** It was anticipated that employees with higher education levels (Master's and PhD degrees) would exhibit higher productivity and satisfaction levels due to advanced skills and knowledge.
+
+3. Results:
+   After executing the SQL query, the following results were obtained:
+
+- **Performer Counts across Educational Levels**
+![]()
+
+- **Performance and Satisfaction Scores across Educational Levels**
+![]()
+
 ### Insights & Implications
-- ...
-- ...
-- ...
-- **Implications:** These findings suggest ...
+- The analysis showed no clear correlation between education level and the number of best or worst performers. For instance: Bachelor's Degree Holders: Best Performers: 9,894 and Worst Performers: 10,127. Similar patterns were observed for High School, Master's, and PhD graduates.
+- Master's Degree holders and High School graduates have the highest average productivity scores, while the second enjoy their jobs the most, with the highest average satisfaction score. Bachelor's Degree holders have the lowest average productivity score, but PhD holders are the least satisfied.
+- **Implications:** These findings suggest that PhD holders may feel misaligned in their current job roles, which can be solved by ensuring that their job responsibilities match their expertise and are challenging. Bachelor holders potentially need more training and mentorship to enhance their performance scores. High School graduates demonstrate high satisfaction and solid productivity, implying that they might benefit from practical work environments. Addionally, Master's degree holders should continue tackling challenging projects and advance further to retain their high performance score. 
 
 ### 5. Tenure
 1. Objective: ...
