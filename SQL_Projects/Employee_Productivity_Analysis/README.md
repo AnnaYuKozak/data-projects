@@ -61,7 +61,9 @@ FROM
 GROUP BY Department
 ORDER BY avg_productivity DESC;`. **SQL Query for *Job Titles*:** `SELECT Job_Title, AVG(Performance_Score) as avg_productivity from Employees 
 GROUP BY Job_Title 
-ORDER BY avg_productivity DESC;`. **Expected Outcome:** It was anticipated that there might be a difference in productivity levels across specific departments and job functions.
+ORDER BY avg_productivity DESC;`.
+- **Expected Outcome:** It was anticipated that there might be a difference in productivity levels across specific departments and job functions.
+
 3. Results:
    After executing the SQL query, the following results were obtained:
 
@@ -99,8 +101,8 @@ FROM
 GROUP BY 
     work_hours_category
 ORDER BY 
-    avg_productivity DESC;
-`. **Expected Outcome:** It was anticipated that the `Normal` group would show the highest average productivity and satisfaction levels.
+    avg_productivity DESC;`.
+- **Expected Outcome:** It was anticipated that the `Normal` group would show the highest average productivity and satisfaction levels.
 
 3. Results:
    After executing the SQL query, the following results were obtained:
@@ -143,7 +145,8 @@ GROUP BY
     promotion_level
 ORDER BY  
     avg_productivity DESC,
-    promotion_level;`. **Expected Outcome:** It was anticipated that employees with higher salaries and at least one promotion during their tenure would exhibit higher productivity and satisfaction levels.
+    promotion_level;`.
+- **Expected Outcome:** It was anticipated that employees with higher salaries and at least one promotion during their tenure would exhibit higher productivity and satisfaction levels.
 
 3. Results:
    After executing the SQL query, the following results were obtained:
@@ -181,16 +184,17 @@ FROM
 GROUP BY 
     Education_Level
 ORDER BY 
-    avg_productivity DESC;`. **Expected Outcome:** It was anticipated that employees with higher education levels (Master's and PhD degrees) would exhibit higher productivity and satisfaction levels due to advanced skills and knowledge.
+    avg_productivity DESC;`.
+- **Expected Outcome:** It was anticipated that employees with higher education levels (Master's and PhD degrees) would exhibit higher productivity and satisfaction levels due to advanced skills and knowledge.
 
 3. Results:
    After executing the SQL query, the following results were obtained:
 
 - **Performer Counts across Educational Levels**
-![]()
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/Education%20best-worst.png)
 
 - **Performance and Satisfaction Scores across Educational Levels**
-![]()
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/Screenshot%202024-11-01%20at%2010.07.48.png)
 
 ### Insights & Implications
 - The analysis showed no clear correlation between education level and the number of best or worst performers. For instance: Bachelor's Degree Holders: Best Performers: 9,894 and Worst Performers: 10,127. Similar patterns were observed for High School, Master's, and PhD graduates.
@@ -198,33 +202,119 @@ ORDER BY
 - **Implications:** These findings suggest that PhD holders may feel misaligned in their current job roles, which can be solved by ensuring that their job responsibilities match their expertise and are challenging. Bachelor holders potentially need more training and mentorship to enhance their performance scores. High School graduates demonstrate high satisfaction and solid productivity, implying that they might benefit from practical work environments. Addionally, Master's degree holders should continue tackling challenging projects and advance further to retain their high performance score. 
 
 ### 5. Tenure
-1. Objective: ...
+1. Objective: Explore whether employees' performance levels increase with longer tenure at the company.
 2. Methodology:
--  to explore ... `FUNCTIONS` were used. **SQL Query for *...*:** `...`. **SQL Query for *...*:** `...`. **Expected Outcome:** It was anticipated that ...
+- Classified employees into tenure groups based on their Years_At_Company: New: 0-3 years; Mid: 4-6 years;Experienced: 7-10 years.
+- Calculated the average Performance_Score for each tenure group using the AVG function; other fuctions such as `GROUP BY`,`ORDER BY`, and `DESC` also were used.
+- Used a subquery to create tenure groups and selected the relevant data.
+-  **SQL Query:** `SELECT 
+    tenure_group,
+    AVG(Performance_Score) AS avg_productivity
+FROM 
+    (SELECT 
+         CASE 
+             WHEN Years_At_Company BETWEEN 0 AND 3 THEN 'New'
+             WHEN Years_At_Company BETWEEN 4 AND 6 THEN 'Mid'
+             WHEN Years_At_Company BETWEEN 7 AND 10 THEN 'Experienced'
+         END AS tenure_group,
+         Performance_Score
+     FROM 
+         Employees) AS tenure
+GROUP BY 
+    tenure_group
+ORDER BY 
+    avg_productivity DESC;`.
+- **Expected Outcome:** It was anticipated that employees' performance levels would increase with longer tenure.
+
+3. Results:
+   After executing the SQL query, the following results were obtained:
+
+- **Average Productivity across Tenure Groups**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/tenure.png)
+
 ### Insights & Implications
-- ...
-- ...
-- ...
-- **Implications:** These findings suggest ...
+- Mid Tenure Employees (4-6 years) have the highest average performance score, while Experienced group shows a slight decrease in average productivity. New employees have the lowest average scoe.
+- **Implications:** These findings suggest that employee productivity might peak during the mid-tenure period (4-6 years), which can be due to mastering their job roles. It is advised to acknowledge their high performance in order to maintain motivation. The productivity decline among experienced employees might suggest either career plateau or burnout. To deal with that, new job challenges and opportunities should be introduced. New employees might benefit from mentorship to enchance their performance. 
 
 ### 6. Remote Work
-1. Objective: ...
+1. Objective: Explore how different balances of remote and on-site work affect employee productivity and satisfaction levels.
+
 2. Methodology:
--  to explore ... `FUNCTIONS` were used. **SQL Query for *...*:** `...`. **SQL Query for *...*:** `...`. **Expected Outcome:** It was anticipated that ...
+-  Classified employees based on their `Remote_Work_Frequency` into five categories:On-Site: 0% remote work;Limited Remote: 25%; Hybrid: 50%; Predominantly Remote: 75%;Remote-Only: 100%.
+-  Used the `AVG` function to calculate the average `Performance_Score` and the average `Employee_Satisfaction_Score` for each remote work category. Other fuctions such as `GROUP BY`,`ORDER BY`, and `DESC` also were used.
+-  **SQL Query:** `SELECT 
+    CASE 
+        WHEN Remote_Work_Frequency = 0 THEN 'On-Site'
+        WHEN Remote_Work_Frequency = 25 THEN 'Limited Remote'
+        WHEN Remote_Work_Frequency = 50 THEN 'Hybrid'
+        WHEN Remote_Work_Frequency = 75 THEN 'Predominantly Remote'
+        WHEN Remote_Work_Frequency = 100 THEN 'Remote-Only'
+    END AS remote_work,
+    AVG(Performance_Score) AS avg_productivity,
+    AVG(Employee_Satisfaction_Score) AS avg_satisfaction
+FROM 
+    Employees
+GROUP BY 
+    remote_work
+ORDER BY  
+    avg_productivity DESC;`.
+-  **Expected Outcome:** It was anticipated that a Hybrid work model would offer the best balance between remote and on-site work.
+
+3. Results:
+   After executing the SQL query, the following results were obtained:
+
+- **Performance and Satisfaction across Remote Work Models**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/remote_work.png)
+
 ### Insights & Implications
-- ...
-- ...
-- ...
-- **Implications:** These findings suggest ...
+- Workers who work 25% of their time remote have the highest average productivity and satisfaction levels. Remote-Only group takes the second place in average productivity.Predominantly Remote and Hybrid workers report lower productivity and satisfaction levels. The least productive and satisfied employees do not work remote at all. 
+- **Implications:** These findings suggest that remote work can raise employee's productivity and enthusiasm. So it is recommended to allow employees work approximately one day a week and to encourage a work-life balance.
 
 ### 7. Training Hours
-1. Objective: ...
+1. Objective: Explore whether the amount of training hours an employee receives impacts their productivity, satisfaction levels, overtime hours, and resignation rates.
 2. Methodology:
--  to explore ... `FUNCTIONS` were used. **SQL Query for *...*:** `...`. **SQL Query for *...*:** `...`. **Expected Outcome:** It was anticipated that ...
+-  Classified employees based on their Training_Hours into four categories: None: 0 hours;Low: 1-33; Medium: 34-66; High: 67-99 hours.
+-  to explore averages (Performance_Score,Employee_Satisfaction_Score, Overtime_Hours) `AVG` was used; as well as `GROUP BY`,`ORDER BY`, and `DESC` functions.
+-  Counted the number of employees who resigned in each category using the `COUNT` function with `CASE WHEN`.
+-  **SQL Query:** `SELECT 
+    CASE 
+        WHEN Training_Hours = 0 THEN 'None'
+        WHEN Training_Hours BETWEEN 1 AND 33 THEN 'Low'
+        WHEN Training_Hours BETWEEN 34 AND 66 THEN 'Medium'
+        WHEN Training_Hours BETWEEN 67 AND 99 THEN 'High'
+    END AS hours_trained,
+    AVG(Performance_Score) AS avg_productivity,
+    AVG(Employee_Satisfaction_Score) AS avg_satisfaction,
+    AVG(Overtime_Hours) AS avg_overtime,         
+    COUNT(CASE WHEN Resigned = 1 THEN 1 END) AS resignation_count
+FROM 
+    Employees
+GROUP BY 
+    hours_trained
+ORDER BY
+    avg_productivity DESC;`.
+-  **Expected Outcome:** It was anticipated that employees receiving more training hours would exhibit higher productivity and satisfaction levels due to improved skills and competencies.
+
+
+3. Results:
+   After executing the SQL query, the following results were obtained:
+
+- **Effect of Training**
+![](https://github.com/AnnaYuKozak/data-projects/blob/main/SQL_Projects/Employee_Productivity_Analysis/hours_trained.png)
+
 ### Insights & Implications
-- ...
-- ...
-- ...
-- **Implications:** These findings suggest ...
+- Employees with no training have the highest average productivity score, while satisfaction scores are relatively similar across all training levels. Category with no training has the highest average overtime hours and also significantly fewer resignations (110) compared to other categories (over 3,000 in each).
+- **Implications:** These findings suggest that increased training hours do not correlate with higher productivity. However, those with zero training hours work more on average. So it is recommended to review the quality and relevance of training programs, and additionally to consider implementing tailored training to meet the specific needs of different roles or departments.
 
 # Conclusions
+This analysis provided valuable insights into the different work-related metrics of the current company's environment.
+
+Key recommendations include: 
+1. Address Underperformance and Leverage High-Performing Areas by implementing development programs and discovering strategies for productivity boost.
+2. Optimize Work Hours to Enhance Productivity by assessing workloads and doing regular well-being check-ups.
+3. Enhance Motivation Through Competitive Salary and Clear Promotion Paths to retain talent.
+4. Align Job Roles with Educational Backgrounds.
+5. Support Employees Throughout Their Tenure by offering mentorship to new employees while providing growth opportunities to experienced workers.
+6. Implement Flexible Remote Work Models.
+7. Review the Quality of current Training Programs.
+
